@@ -2,7 +2,9 @@ name: Django CI
 
 on:
   push:
-    branches: [ ** ]
+    branches:
+      - '*'         # matches every branch
+      - '*/*'       # matches every branch containing a single '/'
   pull_request:
     branches: [ master ]
 
