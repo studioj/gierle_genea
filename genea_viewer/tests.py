@@ -1,5 +1,5 @@
 from django.test import TestCase
-
+from datetime import datetime, date, timezone
 from django.urls import resolve
 
 from genea_viewer.models import Person
@@ -18,8 +18,12 @@ class TestAllURLs(TestCase):
 
 class PersonModelTestCase(TestCase):
     def setUp(self):
-        Person.objects.create(name="Jacobus")
+        Person.objects.create(name="Jacobus", date_of_birth=datetime(2020, 1, 1, 0, 0, tzinfo=timezone.utc))
 
     def test_person_has_a_name(self):
         person = Person.objects.get(name="Jacobus")
         self.assertEquals(person.name, "Jacobus")
+
+    def test_person_has_birthdate(self):
+        person = Person.objects.get(date_of_birth=datetime(2020, 1, 1, 0, 0, tzinfo=timezone.utc))
+        self.assertEquals(person.date_of_birth, datetime(2020, 1, 1,tzinfo=timezone.utc))
