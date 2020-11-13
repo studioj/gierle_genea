@@ -18,8 +18,12 @@ class TestAllURLs(TestCase):
 
 class PersonModelTestCase(TestCase):
     def setUp(self):
-        Person.objects.create(name="Jacobus")
+        Person.objects.create(name="Neefs", first_name="Jef")
 
     def test_person_has_a_name(self):
-        person = Person.objects.get(name="Jacobus")
-        self.assertEquals(person.name, "Jacobus")
+        person = Person.objects.get(name="Neefs")
+        self.assertEquals(person.name, "Neefs")
+
+    def test_person_has_a_first_name(self):
+        person = Person.objects.get(first_name="Jef")
+        self.assertEquals(person.first_name, "Jef")

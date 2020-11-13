@@ -8,15 +8,20 @@
 <form method="post" action="/add_person">
                     <input name="person_name" id="id_person"
                            class="form-control input-lg"
-                           placeholder="Enter a person"/>
+                           placeholder="Enter a last name"/>
+                    <input name="person_first_name" id="id_person"
+                           class="form-control input-lg"
+                           placeholder="Enter a first name"/>
+                    <input type="submit" value="Submit">
                     {% csrf_token %}
                 </form>
 
-<p>{{ added_person }}</p>
+<p>{{ added_person_name }}, {{ added_person_first_name }}</p>
  <table id="id_person_table" class="table">
         {% for person in all_persons.all %}
             <tr>
-                <td>{{ person.name }}</td>
+                <td>{{ person.name }} </td>
+                <td>{{ person.first_name }} </td>
             </tr>
         {% endfor %}
     </table>
