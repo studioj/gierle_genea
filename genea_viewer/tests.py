@@ -2,7 +2,7 @@ from django.test import TestCase
 
 from django.urls import resolve
 
-from genea_viewer.models import Person
+from genea_viewer.models import Person, LifeEvent, BirthEvent
 from genea_viewer.views import index, add_person
 
 
@@ -27,3 +27,13 @@ class PersonModelTestCase(TestCase):
     def test_person_has_a_first_name(self):
         person = Person.objects.get(first_name="Jef")
         self.assertEquals(person.first_name, "Jef")
+
+
+class LifeEventModelTestCase(TestCase):
+    def setUp(self):
+        LifeEvent.objects.create()
+
+
+class BirthEventModelTestCase(TestCase):
+    def setUp(self):
+        BirthEvent.objects.create()
