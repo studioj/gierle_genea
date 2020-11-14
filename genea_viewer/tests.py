@@ -36,4 +36,6 @@ class LifeEventModelTestCase(TestCase):
 
 class BirthEventModelTestCase(TestCase):
     def setUp(self):
-        BirthEvent.objects.create()
+        BirthEvent.objects.create(date=(2, 2, 2, 0, 0, 0))
+
+

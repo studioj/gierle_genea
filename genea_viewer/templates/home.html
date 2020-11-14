@@ -12,7 +12,9 @@
                     <input name="person_first_name" id="id_person"
                            class="form-control input-lg"
                            placeholder="Enter a first name"/>
+                    <input name="person_birth_date" type="datetime-local" id="myLocalDate" value="1700-11-16T15:25:33">
                     <input type="submit" value="Submit">
+
                     {% csrf_token %}
                 </form>
 
@@ -22,6 +24,7 @@
             <tr>
                 <td>{{ person.name }} </td>
                 <td>{{ person.first_name }} </td>
+                <td>{{ person.birth_event.date|date:'Y-m-d H:i' }} </td>
             </tr>
         {% endfor %}
     </table>
