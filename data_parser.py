@@ -3,14 +3,12 @@ import django
 import os
 from dbf import Table
 
-test = Table("data/huwel.DBF")
-i =0
-test.open()
-for record in test:
-    i += 1
-    print(record)
-    if i == 10:
-        break
+# test = Table("data/huwel.DBF")
+# i = 0
+# test.open()
+# for record in test:
+#     i += 1
+# print(i)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gierle_genea_web.settings")
 

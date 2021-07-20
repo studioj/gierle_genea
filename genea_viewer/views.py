@@ -9,6 +9,13 @@ def index(request):
     return render(request, "home.html")
 
 
+def database_view(request):
+    all_persons = Person.objects.all().order_by('-name')
+    return render(
+        request, "database_view.html", {"all_persons": all_persons}
+    )
+
+
 def add_person(request):
     birth_date = BirthEvent.objects.create(date=datetime.strptime(request.POST["person_birth_date"], "%Y-%m-%dT%H:%M:%S"))
 
